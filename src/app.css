@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background-color1: #ffffff; /* Default background color */
+    --background-color2: #ffffff; /* Default background color */
+    --text-color: #000000;       /* Default text color */
+    --button-color: #0000ff; /* Default background color */
+}
+
+@layer components {
+
+    .todo {
+        @apply border-l-2 border-red-500 pl-4 py-2 flex items-center justify-between;
+    }
+
+    .dark .todo {
+        @apply border-l-2 border-blue-500 pl-4 py-2 flex items-center justify-between;
+    }
+
+    .custom .todo {
+        @apply pl-4 py-2 flex items-center justify-between;
+        border-left: 2px solid var(--button-color);
+    }
+
+    .mainContainer {
+        @apply min-h-screen text-black flex flex-col relative;
+        background: linear-gradient(to right, #c1c0bc, #d1ce9d);
+    }
+
+    /* Dark Mode */
+    .dark .mainContainer {
+        @apply min-h-screen text-white flex flex-col relative;
+        background: linear-gradient(to right, #000428, #000046);
+    }
+
+    .custom .mainContainer {
+        @apply min-h-screen flex flex-col relative;
+        background: linear-gradient(to right,var(--background-color1), var(--background-color2));
+        color: var(--text-color);
+    }
+
+    .headerContainer {
+        @apply flex items-center justify-between;
+    }
+
+    .headerBtns {
+        @apply flex items-center gap-2;
+    }
+
+    .headerContainer button {
+        @apply bg-red-500 py-2 px-3 rounded font-semibold flex items-center gap-2 cursor-pointer;
+    }
+
+    .dark .headerContainer button {
+        @apply bg-blue-500;
+    }
+
+    .custom .headerContainer button {
+        background: var(--button-color)
+    }
+
+    .headerContainer button i {
+        @apply text-lg;
+    }
+
+    .headerContainer button:hover {
+        @apply opacity-70;
+    }
+
+    .enterTodo {
+        @apply flex items-stretch border border-red-500 rounded overflow-hidden;
+    }
+
+    .dark .enterTodo {
+        @apply border-blue-500;
+    }
+
+    .custom .enterTodo {
+        border-color: var(--button-color);
+    }
+
+    .enterTodo input {
+        @apply bg-transparent border-none px-4 py-3 flex-1;
+    }
+
+    .enterTodo input:focus {
+        @apply outline-none;
+    }
+
+    .enterTodo button {
+        @apply px-8 py-3 bg-red-500 text-white font-semibold border-none cursor-pointer;
+    }
+
+    .dark .enterTodo button {
+        @apply bg-blue-500;
+    }
+
+    .custom .enterTodo button {
+        background: var(--button-color);
+    }
+
+    .enterTodo button:hover {
+        @apply bg-transparent;
+    }
+
+}
